@@ -18,7 +18,7 @@ sh 'docker build -t veverita_app .'
   }
   post {
     always {
-      
+         echo 'Pipeline finished (success or failure)'
     }
   }
 }
