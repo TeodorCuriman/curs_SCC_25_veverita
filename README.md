@@ -1,0 +1,1 @@
+# -curs_SCC_25_veverita
