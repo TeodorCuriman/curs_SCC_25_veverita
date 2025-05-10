@@ -1,6 +1,10 @@
-from app import app
+import pytest
+from app.lib.biblioteca_animale import culoare_veverita, descriere_veverita
 
-def test_homepage():
-    client = app.test_client()
-    response = client.get('/')
-    assert response.status_code == 200
+def test_culoare_veverita():
+    assert isinstance(culoare_veverita(), str)
+    assert "alb" in culoare_veverita().lower()
+
+def test_descriere_veverita():
+    assert isinstance(descriere_veverita(), str)
+    assert len(descriere_veverita()) > 10
