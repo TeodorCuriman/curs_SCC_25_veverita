@@ -1,5 +1,5 @@
 import pytest
-from app.lib.biblioteca_animale import culoare_veverita, descriere_veverita
+from ..app.lib.biblioteca_animale import culoare_veverita, descriere_veverita
 
 def test_culoare_veverita():
     assert isinstance(culoare_veverita(), str)
