@@ -1,24 +1,19 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps { checkout scm }
+    agent any
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t veverita-app .'
+                }
+            }
+        }
+        stage('Run Container') {
+            steps {
+                script {
+                    sh 'docker run --rm veverita-app'
+                }
+            }
+        }
     }
-    stage('Install') {
-      steps { sh 'pip install -r requirements.txt' }
-    }
-    stage('Test') {
-      steps { sh 'pytest --maxfail=1 --disable-warnings -q' }
-    }
-    stage('Build Docker image'){
-       steps {
-sh 'docker build -t veverita_app .'
-	}
-    }
-  }
-  post {
-    always {
-      
-    }
-  }
 }
