@@ -1,1 +1,1 @@
-# -curs_SCC_25_veverita
+# curs_SCC_25_veverita
