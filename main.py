@@ -1,51 +1,26 @@
-import pygame
-import sys
+from flask import Flask, render_template_string
+from app.lib.biblioteca_animale import culoare_veverita, descriere_veverita
 
-class Animal:
-    def __init__(self):
-        pygame.init()
-        self.screen = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("Veverița care chicotește")
-        
-        self.clock = pygame.time.Clock()
-        self.image = pygame.image.load("veverita.png")
-        self.sound = pygame.mixer.Sound("veverita.wav")
-        
-        self.x = 100
-        self.y = 300
-        self.speed = 5
+app = Flask(__name__)
 
-    def run(self):
-        running = True
-        while running:
-            self.screen.fill((255, 255, 255))  # alb
-            
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
+@app.route('/veverita')
+def pagina_veverita():
+    html = """
+    <h1>Bine ați venit la pagina veverita!</h1>
+    <ul>
+      <li><a href="/culoare_veverita">Vezi culoarea veverita</a></li>
+      <li><a href="/descriere_veverita">Vezi descrierea veverita</a></li>
+    </ul>
+    """
+    return render_template_string(html)
 
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        self.sound.play()
+@app.route('/culoare_veverita')
+def ruta_culoare():
+    return f"<p>{culoare_veverita()}</p><p><a href='/veverita'>&larr; Înapoi</a></p>"
 
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_LEFT]:
-                self.x -= self.speed
-            if keys[pygame.K_RIGHT]:
-                self.x += self.speed
+@app.route('/descriere_veverita')
+def ruta_descriere():
+    return f"<p>{descriere_veverita()}</p><p><a href='/veverita'>&larr; Înapoi</a></p>"
 
-            self.screen.blit(self.image, (self.x, self.y))
-
-            font = pygame.font.SysFont(None, 48)
-            text = font.render("Veverița", True, (0, 0, 0))
-            self.screen.blit(text, (10, 10))
-
-            pygame.display.flip()
-            self.clock.tick(60)
-
-        pygame.quit()
-        sys.exit()
-
-if __name__ == "__main__":
-    animal = Animal()
-    animal.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
