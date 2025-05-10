@@ -1,20 +1,21 @@
-FROM python:3.10-slim
 
-# Instalare dependențe necesare pentru pygame
-RUN apt-get update && apt-get install -y \
-    libsdl2-mixer-2.0-0 \
-    libsdl2-image-2.0-0 \
-    libsdl2-ttf-2.0-0 \
-    && apt-get clean
+FROM python:3.12-slim
 
-# Instalare pygame prin pip
-RUN pip install pygame
-
-# Creează un director de lucru
+# Setează directorul de lucru
 WORKDIR /app
 
-# Copiază toate fișierele în container
+# Copiază fișierele în container
 COPY . .
 
-# Rulează aplicația
-CMD ["python", "main.py"]
+# Instalează dependențele
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expune portul pe care rulează Flask
+EXPOSE 5000
+
+# Setează variabilele de mediu necesare pentru Flask
+ENV FLASK_APP=app/main.py
+ENV PYTHONPATH=/app
+
+# Comanda de pornire a aplicației
+CMD ["flask", "run", "--host=0.0.0.0"]
