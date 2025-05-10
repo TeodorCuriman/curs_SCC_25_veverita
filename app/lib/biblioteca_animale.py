@@ -1,3 +1,4 @@
+# app/lib/biblioteca_animale.py
 
 def culoare_veverita():
     return "Veverița are o blană care variază de la gri, roșcat, până la brun sau chiar negru, în funcție de specie."
