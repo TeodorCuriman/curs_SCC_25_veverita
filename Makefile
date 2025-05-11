@@ -2,7 +2,7 @@
 # Se plasează în directorul rădăcină al repo-ului, după git clone
 
 # Nume imagine și container
-IMAGE_NAME     := alpaca_app
+IMAGE_NAME     := veverita_app
 CONTAINER_NAME := alpaca_container
 HOST_PORT      := 5000
 CONT_PORT      := 5000
@@ -18,7 +18,7 @@ build:
 # Rulează containerul (oprește și șterge unul existent mai întâi)
 run: stop
 	docker run -d --name $(CONTAINER_NAME) -p $(HOST_PORT):$(CONT_PORT) $(IMAGE_NAME)
-	@echo " Containerul '$(CONTAINER_NAME)' rulează pe http://127.0.0.1:$(HOST_PORT)/alpaca"
+	@echo " Containerul '$(CONTAINER_NAME)' rulează pe http://127.0.0.1:$(HOST_PORT)/veverita"
 
 # Oprește și șterge containerul, dacă există
 stop:
