@@ -1,6 +1,6 @@
 # Tutorial – Veverița App
 
-### 1. Asigură-te că Make este instalat pe sistem
+### 1. Asigură-te că Make este instalat pe sistemul de operare linux
 ```bash
 sudo apt install make
 ```
