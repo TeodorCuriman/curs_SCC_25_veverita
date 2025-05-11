@@ -1,25 +1,18 @@
 # Tutorial – Veverița App
-
-### 1. Asigură-te că Make este instalat pe sistemul de operare linux
-```bash
-sudo apt install make
-```
-
 ---
 
-### 2. Rulează următoarele comenzi în terminalul tău Linux:
+### 1. Rulează următoarele comenzi în terminalul tău Linux:
 
 ```bash
-git clone --branch main_veverita https://github.com/USERNAME/curs_SCC_25_veverita.git
+git clone --branch main_veverita https://github.com/TeodorCuriman/curs_SCC_25_veverita.git
 cd curs_SCC_25_veverita
 make all
 ```
 
-> Înlocuiește `USERNAME` cu numele tău de utilizator de GitHub dacă e cazul.
 
 ---
 
-### 3. Deschide aplicația în browser:
+### 2. Deschide aplicația în browser:
 
 - http://localhost:5000/veverita  
   sau  
