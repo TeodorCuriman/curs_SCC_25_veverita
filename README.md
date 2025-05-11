@@ -29,7 +29,7 @@ make all
 
 # Despre proiect
 
-Aplicația **Veverița App** din cadrul proiectului **SCC 2025** (student **[Numele tău]**, grupa **[Grupa ta]**) demonstrează un flux complet de dezvoltare și livrare continuă pentru o aplicație web simplă. Principalele componente sunt:
+Aplicația **Veverița App** din cadrul proiectului **SCC 2025** (student Curiman Teodor, grupa 441D) demonstrează un flux complet de dezvoltare și livrare continuă pentru o aplicație web simplă. Principalele componente sunt:
 
 ---
 
